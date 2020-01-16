@@ -22,7 +22,7 @@ fn main() {
        "blog" => "https://www.steadylearner.com/blog/search/Rust",
        "portfolio" => "https://github.com/steadylearner/Rust-Full-Stack",
        "wanting_to_work_with_rust" => "true",
-       "thre_is_no_rust_jobs" => "true at least here"
+       "but_there_is_no_rust_jobs" => "true at least here"
     );
     println!("{:#?}", &user);
 }
