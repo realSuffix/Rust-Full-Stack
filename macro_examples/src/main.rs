@@ -15,7 +15,7 @@ macro_rules! map {
 }
 
 fn main() {
-    let user = map!(
+    let steadylearner = map!(
        "name" => "Steadylearner",
        "language" => "Rust, Python, JavaScript, (Golang)",
        "website" => "https://www.steadylearner.com",
@@ -24,5 +24,5 @@ fn main() {
        "wanting_to_work_with_rust" => "true",
        "but_there_is_no_rust_jobs" => "true at least here"
     );
-    println!("{:#?}", &user);
+    println!("{:#?}", &steadylearner);
 }
