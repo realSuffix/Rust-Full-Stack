@@ -86,7 +86,7 @@ Test codes here or read [the Rust blog posts at Steadylearner][Steadylearner Rus
 
 [If you need a developer who can deploy web projects with Docker and AWS, please contact me](https://www.linkedin.com/in/steady-learner-3151b7164/). I can work with **Rust**, **JavaScript**, **Python**, **Docker**, **AWS** etc.
 
-(I really want to use the skills used here, please someone give me an opportunity to help your company.)
+**I really want to use the skills used here, please someone give me an opportunity to help your company.**
 
 [![Rust full stack chat app](https://www.steadylearner.com/static/images/post/web/full-stack-rust-chat-app-by-steadylearner.png)](https://www.steadylearner.com/blog/read/Fullstack-Rust-with-Yew)
 
