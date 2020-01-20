@@ -1,5 +1,11 @@
 // Compare this(https://github.com/seanmonstar/warp/blob/master/examples/file.rs) with the entire project.
 
+// If you want to deploy it with Docker, refer to 
+// https://github.com/steadylearner/Rust-Full-Stack/tree/master/React_Rust/server/actix
+
+// If you want to modulize it, refer to
+// https://github.com/steadylearner/Rust-Full-Stack/tree/master/warp/hello_world
+
 use warp::{self, path, Filter};
 
 use console::Style;
