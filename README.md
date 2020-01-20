@@ -84,9 +84,7 @@ yarn watch:rs for devlopment then yarn prod(include build) for production
 
 Test codes here or read [the Rust blog posts at Steadylearner][Steadylearner Rust Blog Posts]. You can also send me a direct message or make an issue here etc. I will help you.
 
-[If you need a developer who can deploy web projects with Docker and AWS, please contact me](https://www.linkedin.com/in/steady-learner-3151b7164/).
-
-I can work with Rust, JavaScript, Python, Docker, AWS etc.
+[If you need a developer who can deploy web projects with Docker and AWS, please contact me](https://www.linkedin.com/in/steady-learner-3151b7164/). I can work with Rust, JavaScript, Python, Docker, AWS etc.
 
 [![Rust full stack chat app](https://www.steadylearner.com/static/images/post/web/full-stack-rust-chat-app-by-steadylearner.png)](https://www.steadylearner.com/blog/read/Fullstack-Rust-with-Yew)
 
