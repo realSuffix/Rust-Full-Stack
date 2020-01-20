@@ -1,1 +1,1 @@
-pub mod hello_test;
+pub mod post_test;

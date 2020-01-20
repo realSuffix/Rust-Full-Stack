@@ -41,6 +41,9 @@ async fn main() {
 
     // Make get_post, create_post, delete_post, update_post
     // While you refer to the links given above.
+
+    // Use some test driven development with files at tests/ and CURL commands.
+    // If you still can't make it work, don't modulze the Warp API and test them here first.
     let post_api = list_posts;
     let end = post_api.with(warp::log("post_api"));
 
