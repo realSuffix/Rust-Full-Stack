@@ -37,6 +37,44 @@ Webpack Dev server is based on Express. Therefore, prototype with it first. We w
 ./express.bash
 ```
 
+### Warp
+
+```console
+./warp.bash
+```
+
+The result from loadtest. Some errors but reasonable speed.
+
+```console
+INFO Requests: 1086, requests per second: 216, mean latency: 133.9 ms
+INFO Requests: 2548, requests per second: 295, mean latency: 582.9 ms
+INFO Requests: 4011, requests per second: 293, mean latency: 1354.5 ms
+INFO Errors: 115, accumulated errors: 115, 2.9% of total requests
+INFO
+INFO Target URL:          http://0.0.0.0:8000/
+INFO Max time (s):        20
+INFO Concurrency level:   10
+INFO Agent:               keepalive
+INFO Requests per second: 2000
+INFO
+INFO Completed requests:  5589
+INFO Total errors:        492
+INFO Total time:          20.006069541 s
+INFO Requests per second: 279
+INFO Mean latency:        1037.8 ms
+INFO
+INFO Percentage of the requests served within a certain time
+INFO   50%      747 ms
+INFO   90%      2419 ms
+INFO   95%      2872 ms
+INFO   99%      4934 ms
+INFO  100%      7192 ms (longest request)
+INFO
+INFO  100%      7192 ms (longest request)
+INFO
+INFO   404:   492 errors
+```
+
 ### Rocket
 
 Use it to test you can deploy React Rocket application to AWS. Then, you should separate the project. Use **/static/<file..>** instead of current **/<file..>** in **routes/static_files.rs** to serve static files. It will help the Rocket server not to show errors from it.
@@ -51,6 +89,34 @@ Use it to test you can deploy React Rocket application to AWS. Then, you should 
 
 ```console
 ./actix.bash
+```
+
+The result from loadtest. No errors and very fast.
+
+```console
+INFO Requests: 0, requests per second: 0, mean latency: 0 ms
+INFO Requests: 1797, requests per second: 360, mean latency: 43.2 ms
+INFO Requests: 4855, requests per second: 612, mean latency: 34.4 ms
+INFO Requests: 9126, requests per second: 833, mean latency: 29.6 ms
+INFO
+INFO Target URL:          http://0.0.0.0:8000/
+INFO Max time (s):        20
+INFO Concurrency level:   10
+INFO Agent:               keepalive
+INFO Requests per second: 2000
+INFO
+INFO Completed requests:  13300
+INFO Total errors:        0
+INFO Total time:          20.005901511 s
+INFO Requests per second: 665
+INFO Mean latency:        32.4 ms
+INFO
+INFO Percentage of the requests served within a certain time
+INFO   50%      26 ms
+INFO   90%      59 ms
+INFO   95%      64 ms
+INFO   99%      75 ms
+INFO  100%      110 ms (longest request)
 ```
 
 ### Restify
@@ -84,7 +150,6 @@ You should use **$python -m venv python** and include Django folder in it.
 ```console
 ./django.bash
 ```
-
 
 ## Blog posts
 
