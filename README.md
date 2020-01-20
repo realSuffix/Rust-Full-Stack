@@ -82,21 +82,17 @@ yarn watch:rs for devlopment then yarn prod(include build) for production
 
 # How to be a full stack Rust Developer
 
-Test codes here or read [the Rust blog posts at Steadylearner][Steadylearner Rust Blog Posts]. 
+Test codes here or read [the Rust blog posts at Steadylearner][Steadylearner Rust Blog Posts]. You can also send me a direct message or make an issue here etc. I will help you.
 
-[If you need a Rust, React, Node, Python developer who can deploy web projects with Docker and AWS, please contact me](https://www.linkedin.com/in/steady-learner-3151b7164/).
+[If you need a developer who can deploy web projects with Docker and AWS, please contact me](https://www.linkedin.com/in/steady-learner-3151b7164/).
 
-You can also send me a direct message or make an issue here etc. I will help you.
+I can work with Rust, JavaScript, Python, Docker, AWS etc.
 
 [![Rust full stack chat app](https://www.steadylearner.com/static/images/post/web/full-stack-rust-chat-app-by-steadylearner.png)](https://www.steadylearner.com/blog/read/Fullstack-Rust-with-Yew)
 
 ## The reason to use this repository
 
-Rust is fast and strongly typed language with many benefits. But, it takes long time to compile and you can't sure your code will satisfy the compiler or not.
-
-Therefore, find the examples you want here and start from it not to waste time with the code that will not work.
-
-I include only the codes that passes and the complete project. It is not effective but will help you test the project immediately.  
+Rust is fast and strongly typed language with many benefits. But, it takes long time to compile. You can't sure your code will satisfy the compiler or not.(There are many Rust web development relevant examples here. Find the examples you want first. If they work, start from them to make your own project.)
 
 ## Start
 
