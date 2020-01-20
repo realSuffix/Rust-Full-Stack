@@ -22,22 +22,6 @@ use crate::schema::posts::dsl::*;
 
 use serde_derive::{Deserialize, Serialize};
 
-// https://github.com/steadylearner/Rust-Full-Stack/blob/master/auth/javascript/express/db/sql/posts.sql
-#[derive(Insertable, Deserialize, AsChangeset, Debug)]
-#[table_name="posts"]
-pub struct NewPost {
-    pub title: String,
-    pub body: String,
-}
-
-impl NewPost {
-    pub fn create(&self, connection: &PgConnection) -> Result<Post, diesel::result::Error> {
-        diesel::insert_into(posts::table)
-            .values(self)
-            .get_result(connection)
-    }
-}
-
 #[derive(Queryable, Serialize, Deserialize, Debug)]
 pub struct Post {
     pub id: i32,
@@ -45,21 +29,6 @@ pub struct Post {
     pub body: String,
 }
 
-// Use post_id instead of id not to make confusion for compiler for duplicate variable names.
-impl Post {
-    pub fn get(post_id: &i32, connection: &PgConnection) -> Result<Post, diesel::result::Error> {
-        let result = posts::table.find(post_id).first(connection);
-        println!("{:#?}", &result);
-        result
-    }
-
-    // pub fn destroy(post_id: &u32, connection: &PgConnection) -> Result<(), diesel::result::Error> {
-    //     diesel::delete(dsl::posts.find(post_id)).execute(connection)?;
-    //     Ok(())
-    // }
-}
-
-//  Move this methods to function or wihout them.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct PostList(pub Vec<Post>);
 

@@ -19,10 +19,3 @@ pub fn list() -> BoxedFilter<()> {
         .and(warp::path::end())
         .boxed()
 }
-
-pub fn get() -> BoxedFilter<(i32, )> {
-    warp::get()
-        .and(path_prefix())
-        .and(warp::path::param::<i32>())
-        .boxed()
-}

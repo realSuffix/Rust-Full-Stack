@@ -1,7 +1,7 @@
 // https://github.com/ManifoldFR/rustfullstack/blob/master/src/main.rs
 
-// Refer to this if you want to include r2d2
-// when you ready to handle the Result and more comlicate the app.
+// Refer to this if you want to include r2d2 and use connection pool also
+// when you ready to handle the Result with Warp seriously.
 // https://github.com/steadylearner/Rust-Full-Stack/blob/master/actix/src/database/db_connection.rs
 
 use diesel::{

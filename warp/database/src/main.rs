@@ -1,6 +1,6 @@
-// We will make Warp version of 
+// We will make Warp version of
 // https://github.com/steadylearner/Rust-Full-Stack/tree/master/actix/src/database
-// You should refer to 
+// You should refer to
 // https://github.com/steadylearner/Rust-Full-Stack/tree/master/microservices_with_docker/warp_client/src
 use warp::{self, Filter};
 
@@ -39,13 +39,9 @@ async fn main() {
     let list_posts = post_route::list()
         .and_then(post_handler::list);
 
-    // curl 0.0.0.0:8000/api/post/v1/1
-    let get_post = post_route::get()
-        .and_then(post_handler::get);
-
-    let post_api = list_posts
-        .or(get_post);
-
+    // Make get_post, create_post, delete_post, update_post
+    // While you refer to the links given above.
+    let post_api = list_posts;
     let end = post_api.with(warp::log("post_api"));
 
     println!("\nRust Warp Server ready at {}", blue.apply_to(&target));

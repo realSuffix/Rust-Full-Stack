@@ -129,8 +129,6 @@ You can **like** and share it with others.
 
 ## Warp
 
-It is not perfect yet but you can make your own version already with it.
-
 1. [Start "Hello, World" project with handlers/, routes/, tests/ etc.](https://github.com/steadylearner/Rust-Full-Stack/tree/master/warp/hello_world)
 2. [Use Warp with React single page app](https://github.com/steadylearner/Rust-Full-Stack/tree/master/React_Rust/server/warp)
 3. [Simple CRUD REST API with Postgresql database](https://github.com/steadylearner/Rust-Full-Stack/tree/master/warp/database)
