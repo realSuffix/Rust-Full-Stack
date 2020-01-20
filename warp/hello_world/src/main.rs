@@ -1,5 +1,6 @@
 // Start with $cargo doc -p warp --open
 // To see its documentation.
+// We will follow the structure of Express app because these two frameworks can be structured similarly.
 use warp::{self, Filter};
 
 use console::Style;
@@ -18,6 +19,10 @@ use self::{
 
 };
 
+// It will only work with $cargo test
+// For example, $cargo test hello -- --nocapture
+#[cfg(test)] mod tests;
+
 #[tokio::main]
 async fn main() {
     let target: String = "0.0.0.0:8000".parse().unwrap();
@@ -35,8 +40,8 @@ async fn main() {
     // Because Rust compiler solves typing the codes automatically instead of you when you use it.
     // It is easy and similar to use JavaScript arrow functions.
     // But, it is not that reusable and a little bit difficult to see what happens behind.
-    // Therefore, we make them in functions and separate in each folder. They are modulized and much more reusable.
-    // We will follow the structure of Express app because these two frameworks are very similar.
+    // Therefore, we make them in functions and separate in each folder.
+    // They are modulized, reusable and testable.
 
     // There are route part and handler part. Similar to request(res) and response(req)?
     // let hello = path!("hello" / String) // 1. Compare it to the routes/hello_route.rs
