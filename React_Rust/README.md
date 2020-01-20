@@ -134,29 +134,29 @@ INFO  100%      110 ms (longest request)
 The reults from loadtest. It is very fast and no errors. It is made for this.
 
 ```console
-[Mon Jan 20 2020 08:54:25 GMT-0500 (Eastern Standard Time)] INFO Requests: 0, requests per second: 0, mean latency: 0 ms
-[Mon Jan 20 2020 08:54:30 GMT-0500 (Eastern Standard Time)] INFO Requests: 3820, requests per second: 772, mean latency: 9 ms
-[Mon Jan 20 2020 08:54:35 GMT-0500 (Eastern Standard Time)] INFO Requests: 11529, requests per second: 1541, mean latency: 5 ms
-[Mon Jan 20 2020 08:54:40 GMT-0500 (Eastern Standard Time)] INFO Requests: 20169, requests per second: 1729, mean latency: 4.0 ms
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO 
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO Target URL:          http://0.0.0.0:8000/
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO Max time (s):        20
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO Concurrency level:   10
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO Agent:               keepalive
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO Requests per second: 2000
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO 
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO Completed requests:  27881
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO Total errors:        0
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO Total time:          20.002745433 s
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO Requests per second: 1394
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO Mean latency:        5.4 ms
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO 
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO Percentage of the requests served within a certain time
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO   50%      4 ms
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO   90%      8 ms
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO   95%      10 ms
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO   99%      19 ms
-[Mon Jan 20 2020 08:54:45 GMT-0500 (Eastern Standard Time)] INFO  100%      339 ms (longest request)
+INFO Requests: 0, requests per second: 0, mean latency: 0 ms
+INFO Requests: 3820, requests per second: 772, mean latency: 9 ms
+INFO Requests: 11529, requests per second: 1541, mean latency: 5 ms
+INFO Requests: 20169, requests per second: 1729, mean latency: 4.0 ms
+INFO 
+INFO Target URL:          http://0.0.0.0:8000/
+INFO Max time (s):        20
+INFO Concurrency level:   10
+INFO Agent:               keepalive
+INFO Requests per second: 2000
+INFO 
+INFO Completed requests:  27881
+INFO Total errors:        0
+INFO Total time:          20.002745433 s
+INFO Requests per second: 1394
+INFO Mean latency:        5.4 ms
+INFO 
+INFO Percentage of the requests served within a certain time
+INFO   50%      4 ms
+INFO   90%      8 ms
+INFO   95%      10 ms
+INFO   99%      19 ms
+INFO  100%      339 ms (longest request)
 ```
 
 
