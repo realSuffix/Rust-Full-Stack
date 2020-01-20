@@ -86,11 +86,13 @@ Test codes here or read [the Rust blog posts at Steadylearner][Steadylearner Rus
 
 [If you need a developer who can deploy web projects with Docker and AWS, please contact me](https://www.linkedin.com/in/steady-learner-3151b7164/). I can work with **Rust**, **JavaScript**, **Python**, **Docker**, **AWS** etc.
 
+(I really want to work, please someone give me an opportunity at least I can use this professionally once.)
+
 [![Rust full stack chat app](https://www.steadylearner.com/static/images/post/web/full-stack-rust-chat-app-by-steadylearner.png)](https://www.steadylearner.com/blog/read/Fullstack-Rust-with-Yew)
 
 ## The reason to use this repository
 
-Rust is fast and strongly typed language with many benefits. But, it takes long time to compile. You can't sure your code will satisfy the compiler or not.(There are many Rust web development relevant examples here. Find the examples you want first. If they work, start from them to make your own project.)
+Rust is fast and strongly typed language with many benefits. But, it takes long time to compile. You can't be sure your code will satisfy the compiler or not.(There are many Rust web development relevant examples here. Find the examples you want first. If they work, start from them to make your own project.)
 
 ## Start
 
@@ -208,7 +210,7 @@ The most of the codes here is relevant to Rust. But, you can find the example co
 
 ## Contact
 
-Send messages with them if you need a help from a full stack developer.
+Send messages with them if you need a immediate help.
 
 1. [LinkedIn](https://www.linkedin.com/in/steady-learner-3151b7164/) 
 2. [Twitter](https://twitter.com/steadylearner_p)
