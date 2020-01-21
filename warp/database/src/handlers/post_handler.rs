@@ -14,16 +14,29 @@ use crate::db_connection::{ establish_connection };
 
 pub async fn list() -> Result<impl warp::Reply, warp::Rejection> {
     let conn = establish_connection();
-    let list_of_posts = PostList::list(&conn);
-    println!("{:#?}", &list_of_posts);
+    let response = PostList::list(&conn);
+    println!("{:#?}", &response);
 
-    Ok(warp::reply::json(&list_of_posts))
+    Ok(warp::reply::json(&response))
 }
 
-pub async fn get(id: String) -> Result<impl warp::Reply, warp::Rejection> {
-    // let conn = establish_connection();
-    // let list_of_posts = PostList::list(&conn);
-    // println!("{:#?}", &list_of_posts);
+pub async fn get(id: i32) -> Result<impl warp::Reply, warp::Rejection> {
+    let conn = establish_connection();
+    let response = Post::find(&id, &conn);
 
-    Ok(warp::reply::html(format!("get {}", &id)))
+    let reply = match response {
+        Ok(post) => {
+            println!("{:#?}", &post);
+            post
+        },
+        Err(e) => {
+            // https://docs.rs/warp/0.1.20/warp/reject/fn.custom.html
+            println!("{:#?}", e);
+            // Temporay solution to make the project grow first.
+            // You may build custom error Struct if necessary.
+            // return Err(warp::reject::custom(UserError))
+            return Err(warp::reject::not_found())
+        }
+    };
+    Ok(warp::reply::json(&reply))
 }

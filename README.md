@@ -216,8 +216,8 @@ Send messages with them if you need a immediate help.
 1. [LinkedIn](https://www.linkedin.com/in/steady-learner-3151b7164/) 
 2. [Twitter](https://twitter.com/steadylearner_p)
 
-## How to contribute it
+## How to contribute
 
-Currently, I am working on with [Warp database example](https://github.com/steadylearner/Rust-Full-Stack/tree/master/warp). But, I am planning to write blog posts about Warp first. 
+I am not a native speaker so there will be grammatical or type errors. You can help me to correct them.
 
-Make get_post, create_post, delete_post, update_post examples to help others. It will be a great opportunity to learn Warp and write CRUD Rest API.
+**You can suggest your code instead of deprecated ones also.** 

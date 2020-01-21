@@ -32,9 +32,9 @@ pub fn list() -> BoxedFilter<()> {
         .boxed()
 }
 
-pub fn get() -> BoxedFilter<(String, )> {
+pub fn get() -> BoxedFilter<(i32, )> {
     warp::get()
         .and(post_api_path_prefix())
-        .and(warp::path::param::<String>())
+        .and(warp::path::param::<i32>())
         .boxed()
 }

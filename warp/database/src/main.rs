@@ -45,6 +45,8 @@ async fn main() {
     // let repeat = post_route::repeat()
     //     .and_then(post_handler::repeat);
 
+    // Make data first with post.sql
+
     // curl 0.0.0.0:8000/api/post/v1
     let list_posts = post_route::list()
         .and_then(post_handler::list);

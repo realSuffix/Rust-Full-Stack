@@ -1,4 +1,6 @@
-// Refer to diesel.rs/guides/getting-started/
+// Read them.
+// 1. diesel.rs/guides/getting-started/
+// 2. https://github.com/steadylearner/Rust-Full-Stack/blob/master/actix/src/database/models/product.rs
 
 // $echo DATABASE_URL=postgres://postgres:postgres@localhost/warp > .env
 
@@ -27,6 +29,25 @@ pub struct Post {
     pub id: i32,
     pub title: String,
     pub body: String,
+}
+
+impl Post {
+    pub fn find(post_id: &i32, connection: &PgConnection) -> Result<Post, diesel::result::Error> {
+        posts::table.find(post_id).first(connection)
+    }
+
+    // pub fn destroy(product_id: &i32, connection: &PgConnection) -> Result<(), diesel::result::Error> {
+    //     diesel::delete(dsl::products.find(product_id)).execute(connection)?;
+    //     Ok(())
+    // }
+
+    // pub fn update(product_id: &i32, new_product: &NewProduct, connection: &PgConnection) -> Result<(), diesel::result::Error> {
+
+    //     diesel::update(dsl::products.find(product_id))
+    //         .set(new_product)
+    //         .execute(connection)?;
+    //     Ok(())
+    // }
 }
 
 #[derive(Serialize, Deserialize, Debug)]
