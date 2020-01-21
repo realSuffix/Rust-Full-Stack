@@ -10,6 +10,10 @@ use crate::{
 
 // It is equal to use it in main.
 // let todos = path!("api" / "user" / "v1");
+
+// When I made this, it was before v2.0
+// You should use .. in v2.0
+// https://github.com/seanmonstar/warp/pull/359
 fn path_prefix() -> warp::filters::BoxedFilter<()> {
     path!("api" / "user" / "v1")
         .boxed()
