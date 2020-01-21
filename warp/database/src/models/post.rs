@@ -24,6 +24,21 @@ use crate::schema::posts::dsl::*;
 
 use serde_derive::{Deserialize, Serialize};
 
+#[derive(Insertable, Deserialize, AsChangeset)]
+#[table_name="posts"]
+pub struct NewPost {
+    pub title: String,
+    pub body: String,
+}
+
+impl NewPost {
+    pub fn create(&self, connection: &PgConnection) -> Result<Post, diesel::result::Error> {
+        diesel::insert_into(posts::table)
+            .values(self)
+            .get_result(connection)
+    }
+}
+
 #[derive(Queryable, Serialize, Deserialize, Debug)]
 pub struct Post {
     pub id: i32,
@@ -36,18 +51,18 @@ impl Post {
         posts::table.find(post_id).first(connection)
     }
 
-    // pub fn destroy(product_id: &i32, connection: &PgConnection) -> Result<(), diesel::result::Error> {
-    //     diesel::delete(dsl::products.find(product_id)).execute(connection)?;
-    //     Ok(())
-    // }
+    pub fn delete(post_id: &i32, connection: &PgConnection) -> Result<(), diesel::result::Error> {
+        diesel::delete(dsl::posts.find(post_id)).execute(connection)?;
+        Ok(())
+    }
 
-    // pub fn update(product_id: &i32, new_product: &NewProduct, connection: &PgConnection) -> Result<(), diesel::result::Error> {
+    pub fn update(post_id: &i32, new_post: &NewPost, connection: &PgConnection) -> Result<(), diesel::result::Error> {
 
-    //     diesel::update(dsl::products.find(product_id))
-    //         .set(new_product)
-    //         .execute(connection)?;
-    //     Ok(())
-    // }
+        diesel::update(dsl::posts.find(post_id))
+            .set(new_post)
+            .execute(connection)?;
+        Ok(())
+    }
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -63,4 +78,3 @@ impl PostList {
         PostList(result)
     }
 }
-

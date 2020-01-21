@@ -16,18 +16,53 @@ mod tests {
     use super::*;
 
     // Refer to curl commands in main.rs
+
     #[tokio::test]
     async fn list_post() {
-        let post = post_route::list()
+        let list_post_api = post_route::list()
             .and_then(post_handler::list);
 
         let res = warp::test::request()
             .method("GET")
             .path("/api/post/v1") // 1. [Client] - Define request(path with datas) until this
-            .reply(&post) // 2. [Server] - How will you respond to it? With what?
+            .reply(&list_post_api) // 2. [Server] - How will you respond to it? With what?
             .await;
 
         assert_eq!(res.status(), 200, "Should return 200 OK.");
         println!("{:#?}", res.body());
     }
+
+    #[tokio::test]
+    async fn get_post() {
+        let get_post_api = post_route::get()
+            .and_then(post_handler::get);
+
+        let res = warp::test::request()
+            .method("GET")
+            .path("/api/post/v1/1")
+            .reply(&get_post_api)
+            .await;
+
+        assert_eq!(res.status(), 200, "Should return 200 OK.");
+        println!("{:#?}", res.body());
+    }
+
+    // Refer to this to make tests for create_post, delete_post, update_post
+    // https://github.com/steadylearner/Rust-Full-Stack/blob/master/microservices_with_docker/warp_client/src/tests/user_test_monolithic.rs
+    // Otherwise, simply use CURL commands in main.rs file.
+
+    // #[tokio::test]
+    // async fn create_post() {
+
+    // }
+
+    // #[tokio::test]
+    // async fn update_post() {
+
+    // }
+
+    // #[tokio::test]
+    // async fn delete_post() {
+
+    // }
 }
