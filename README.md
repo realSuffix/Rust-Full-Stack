@@ -113,7 +113,7 @@ Then, use one of these commands.
 5. **$cd React_Rust** to test a React app with **Rocket**, **Actix**, Express, Restify, Django, Golang, Vibora etc.
 6. **$cd sitemap** if you want to build sitemap automatically with a database.
 
-You can **like** and share it with others. 
+You can **like** and share it with others if you want more contents to motivate the author. 
 
 ## Install and Deploy Rust
 
