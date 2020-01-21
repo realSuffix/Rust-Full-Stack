@@ -23,15 +23,6 @@ use self::{
 // For example, $cargo test hello -- --nocapture
 #[cfg(test)] mod tests;
 
-// https://stackoverflow.com/questions/29068716/how-do-you-use-a-macro-from-inside-its-own-crate
-#[macro_export]
-macro_rules! hello {
-    () => {
-        hello_route::hello()
-        .and_then(hello_handler::hello)
-    }
-}
-
 #[tokio::main]
 async fn main() {
     let target: String = "0.0.0.0:8000".parse().unwrap();
@@ -40,13 +31,8 @@ async fn main() {
 
     // GET /hello/www.steadylearner.com => 200 OK with body "Hello, www.steadylearner.com!"
     // $curl 0.0.0.0:8000/hello/www.steadylearner.com
-    // [Note] - You may want to extract this to the function instead of macro and make it reusable for tests/ folder.
-    // But, it becomes very difficult to type and some of them to make it work are private and shows unstable warning.
-    // (You can see that in main_function.rs)
-
-    let hello = hello!();
-    // let hello = hello_route::hello()
-    //     .and_then(hello_handler::hello);
+    let hello = hello_route::hello()
+        .and_then(hello_handler::hello);
 
     // What is the point of this framework? Separate all features and make them reusable.
 

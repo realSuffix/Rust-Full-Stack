@@ -3,7 +3,6 @@ use warp::Filter;
 use crate::{
     handlers::hello_handler,
     routes::hello_route,
-    hello,
 };
 
 // $cargo test -- --nocapture if you want to use println! etc.
@@ -19,9 +18,8 @@ mod tests {
     // Refer to curl commands in main.rs
     #[tokio::test]
     async fn hello() {
-        let hello = hello!();
-        // let hello = hello_route::hello()
-        //     .and_then(hello_handler::hello);
+        let hello = hello_route::hello()
+            .and_then(hello_handler::hello);
 
         let res = warp::test::request()
             .method("GET")

@@ -1,7 +1,15 @@
 // Start with $cargo doc -p warp --open
 // To see its documentation.
 // We will follow the structure of Express app because these two frameworks can be structured similarly.
-use warp::{self, Filter};
+use warp::{
+    self,
+    Filter,
+    // Shows that it is private. Don't use this then.
+    // filter::and_then::AndThen
+    filters::BoxedFilter,
+};
+
+use core::future::future::Future;
 
 use console::Style;
 
@@ -23,14 +31,15 @@ use self::{
 // For example, $cargo test hello -- --nocapture
 #[cfg(test)] mod tests;
 
-// https://stackoverflow.com/questions/29068716/how-do-you-use-a-macro-from-inside-its-own-crate
-#[macro_export]
-macro_rules! hello {
-    () => {
-        hello_route::hello()
-        .and_then(hello_handler::hello)
-    }
-}
+// note: expected struct `warp::filter::and_then::AndThen<std::string::String, std::string::String>`
+//               found struct `warp::filter::and_then::AndThen<warp::filter::boxed::BoxedFilter<(std::string::String,)>, fn(std::string::String) -> impl core::future::future::Future {handlers::hello_handler::hello}>`
+
+// type Hello = warp::filter::and_then::AndThen<warp::filter::boxed::BoxedFilter<(std::string::String,)>, fn(std::string::String) -> impl core::future::future::Future>;
+
+// pub fn hello_api() -> Hello {
+//     hello_route::hello()
+//         .and_then(hello_handler::hello)
+// }
 
 #[tokio::main]
 async fn main() {
@@ -40,13 +49,22 @@ async fn main() {
 
     // GET /hello/www.steadylearner.com => 200 OK with body "Hello, www.steadylearner.com!"
     // $curl 0.0.0.0:8000/hello/www.steadylearner.com
-    // [Note] - You may want to extract this to the function instead of macro and make it reusable for tests/ folder.
-    // But, it becomes very difficult to type and some of them to make it work are private and shows unstable warning.
-    // (You can see that in main_function.rs)
 
-    let hello = hello!();
-    // let hello = hello_route::hello()
-    //     .and_then(hello_handler::hello);
+    // let hello = hello_api();
+    let hello = hello_route::hello()
+        .and_then(hello_handler::hello);
+
+    // Find the function signature with this.
+    // println!("{:#?}", hello);
+
+    ///     error[E0277]: `fn(std::string::String) -> impl core::future::future::Future {handlers::hello_handler::hello}` doesn't implement `std::fmt::Debug`
+    //   --> src/main.rs:44:23
+    //    |
+    //    |     println!("{:#?}", hello);
+    //    |                       ^^^^^ `fn(std::string::String) -> impl core::future::future::Future {handlers::hello_handler::hello}` cannot be formatted using `{:?}` because it doesn't implement `std::fmt::Debug`
+    //    |
+    //    = help: the trait `std::fmt::Debug` is not implemented for `fn(std::string::String) -> impl core::future::future::Future {handlers::hello_handler::hello}`
+    //    = note: required beca
 
     // What is the point of this framework? Separate all features and make them reusable.
 
