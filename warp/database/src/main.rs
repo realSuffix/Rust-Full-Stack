@@ -6,6 +6,9 @@ use warp::{self, Filter};
 
 use console::Style;
 
+#[macro_use]
+extern crate lazy_static;
+
 mod routes;
 mod handlers; // This is the payload of this framework.
 use self::{

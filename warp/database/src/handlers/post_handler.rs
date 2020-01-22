@@ -5,7 +5,24 @@ use crate::models::post::{
     Post,
     NewPost,
 };
-use crate::db_connection::{ establish_connection };
+
+
+
+use diesel::r2d2::ConnectionManager;
+use diesel::PgConnection;
+
+pub type Pool = r2d2::Pool<ConnectionManager<PgConnection>>;
+lazy_static! {
+    static ref POOL: Pool = {
+        let database_url = String::from("postgres://martin:martin2707@localhost/warp_test_db");
+        // create db connection pool
+        let manager = ConnectionManager::<PgConnection>::new(database_url);
+        let pool: Pool = r2d2::Pool::builder()
+            .build(manager)
+            .expect("Failed to create pool.");
+        pool
+    };
+}
 
 // Use this to debug and verify API chaining work or not.
 // pub async fn repeat(input: String) -> Result<impl warp::Reply, warp::Rejection> {
@@ -14,7 +31,7 @@ use crate::db_connection::{ establish_connection };
 // }
 
 pub async fn list() -> Result<impl warp::Reply, warp::Rejection> {
-    let conn = establish_connection();
+    let conn = POOL.get().unwrap();
     let response = PostList::list(&conn);
     println!("{:#?}", &response);
 
@@ -22,7 +39,7 @@ pub async fn list() -> Result<impl warp::Reply, warp::Rejection> {
 }
 
 pub async fn get(id: i32) -> Result<impl warp::Reply, warp::Rejection> {
-    let conn = establish_connection();
+    let conn = POOL.get().unwrap();
     let response = Post::find(&id, &conn);
 
     let reply = match response {
@@ -43,7 +60,7 @@ pub async fn get(id: i32) -> Result<impl warp::Reply, warp::Rejection> {
 }
 
 pub async fn create(new_post: NewPost) -> Result<impl warp::Reply, warp::Rejection> {
-    let conn = establish_connection();
+    let conn = POOL.get().unwrap();
     let response = new_post
         .create(&conn);
 
@@ -67,7 +84,7 @@ pub async fn create(new_post: NewPost) -> Result<impl warp::Reply, warp::Rejecti
 // Make UpdatePost Struct with Optional values in it if necessary.
 // Use this to make all CRUD REST API work first.
 pub async fn update(id: i32, update_post: NewPost) -> Result<impl warp::Reply, warp::Rejection> {
-    let conn = establish_connection();
+    let conn = POOL.get().unwrap();
     let response = Post::update(&id, &update_post, &conn);
 
     let reply = match response {
@@ -88,7 +105,7 @@ pub async fn update(id: i32, update_post: NewPost) -> Result<impl warp::Reply, w
 }
 
 pub async fn delete(id: i32) -> Result<impl warp::Reply, warp::Rejection> {
-    let conn = establish_connection();
+    let conn = POOL.get().unwrap();
     let response = Post::delete(&id, &conn);
 
     let reply = match response {

@@ -74,7 +74,6 @@ impl PostList {
             .limit(10)
             .load::<Post>(connection)
             .expect("Error loading posts");
-
         PostList(result)
     }
 }

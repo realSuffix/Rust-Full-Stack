@@ -11,6 +11,7 @@ use diesel::{
 use dotenv::dotenv;
 use std::env;
 
+#[allow(dead_code)]
 pub fn establish_connection() -> PgConnection {
     dotenv().ok();
 
